@@ -13,7 +13,7 @@ import os
 # Hamming code 7:4, decoder
 
 
-def encode_half_byte_to_word(word):
+def decode_word_to_half_byte(word):
     # Values for bits
     # Значения для отдельных бит
     # Get bit values
@@ -131,8 +131,8 @@ for i in range(input_signal_length_bytes):
             coded_full_word_value = 0x00
 
             # Decode data
-            output_low_half_byte_value = encode_half_byte_to_word(coded_low_word_value)
-            output_high_half_byte_value = encode_half_byte_to_word(coded_high_word_value)
+            output_low_half_byte_value = decode_word_to_half_byte(coded_low_word_value)
+            output_high_half_byte_value = decode_word_to_half_byte(coded_high_word_value)
             output_byte_value = output_low_half_byte_value + (output_high_half_byte_value << 0x04)
 
             # Put data to output stream
